@@ -13,7 +13,7 @@ FROM node:alpine AS js_base
 WORKDIR '/app/ui'
 
 COPY /ui/package*.json .
-RUN npm install
+RUN yarn install
 
 COPY /ui .
 
