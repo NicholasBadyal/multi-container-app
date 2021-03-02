@@ -27,6 +27,7 @@ class Fib extends Component {
     event.preventDefault();
 
     if(
+      isNaN(this.state.index) ||
       this.state.index > 40 ||
       this.state.index < 0 || this.state.values[this.state.index] !== undefined
     ) {

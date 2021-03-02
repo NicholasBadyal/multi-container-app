@@ -11,7 +11,7 @@ function App() {
         <header className="App-header">
         <div className="App-subheader">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Fibonacci Calculator</h1>
           </div>
           <div className="App-Links">
           <Link className="Link" to="/">Home</Link>
