@@ -1,0 +1,24 @@
+sudo: required
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t nbadyal/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true nbadyal/react-test npm test
+
+after_success:
+  - docker build -t nbadyal/multi-client ./client
+  - docker build -t nbadyal/multi-nginx ./nginx
+  - docker build -t nbadyal/multi-server ./server
+  - docker build -t nbadyal/multi-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push to hub
+  - docker push nbadyal/multi-client
+  - docker push nbadyal/multi-nginx
+  - docker push nbadyal/multi-server
+  - docker push nbadyal/multi-worker
