@@ -13,7 +13,7 @@
       "image": "nbadyal/multi-server",
       "hostname": "api",
       "essential": false,
-      "memory": 128
+      "memory": 256
     },
     {
       "name": "worker",
