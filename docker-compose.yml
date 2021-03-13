@@ -8,7 +8,7 @@ services:
     image: 'redis:latest'
   nginx:
     depends_on:
-      - api
+      - server
       - client
     restart: always
     build:
@@ -16,7 +16,7 @@ services:
       context: ./nginx
     ports:
       - '3050:80'
-  api:
+  server:
     depends_on:
       - postgres
       - redis
@@ -36,7 +36,7 @@ services:
       - PGDATABASE=postgres
   client:
     depends_on:
-      - api
+      - server
     stdin_open: true
     build:
       dockerfile: Dockerfile.dev
