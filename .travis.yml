@@ -25,11 +25,11 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  region: us-west-1
-  app: multi-container
-  env: Multicontainer-env
-  bucket_name: multi-container-bucket
-  bucket_path: container-multi
+  region: us-west-2
+  app: Fib-Dockerized
+  env: Fibdockerized-env
+  bucket_name: elasticbeanstalk-us-west-2-634366585133
+  bucket_path: fib-docker
   on:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
